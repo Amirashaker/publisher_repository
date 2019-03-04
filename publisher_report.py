@@ -1,14 +1,14 @@
 
 # coding: utf-8
 
-# In[4]:
+# In[1]:
 
 
 import mysql.connector
 from selenium import webdriver
 import json, base64
 import time
-import urllib
+#import urllib
 from PIL import Image
 import os
 
@@ -48,7 +48,7 @@ mydb = mysql.connector.connect(
   database="testing"  
 )
 mycursor = mydb.cursor()
-mycursor.execute("select distinct domain_id from testing.widgets where id in (select widget_id from testing.reports where widget_id=widget_id) order by domain_id asc LIMIT 20,1;")
+mycursor.execute("select distinct domain_id from testing.widgets where id in (select widget_id from testing.reports where widget_id=widget_id) order by domain_id asc LIMIT 0,1;")
 myresult = mycursor.fetchall()
 count=0
 for x in myresult: 
@@ -113,7 +113,7 @@ for x in myresult:
     
 
    clicks_earnings_graph =Image.open("/home/amira/Desktop/publisher report_full screen/"+filename)
-   #to crop clicks & earnings chart
+   #to crop clicks & earnings graph
    box=(5, 1900, 1300,2300)
    cropped_image4 = clicks_earnings_graph.crop(box)
    cropped_image4.save(full_path + "/" +"clicks & earnings_"+filename)
@@ -136,7 +136,7 @@ for x in myresult:
   driver.close()
   count+=1
 #to avoid Too Many Requests
-  if count==25 or count==50 or count==75 or count==100 or count==125 or count==150 or count==175 or count==200 or count==225 or count==250 or count==275 or count==300 or count==325 or count==350 or count==375 or count==400 or count==425 or count==450 or count==475 or count==500 or count==525 or count==550 or count==575 or count==600 or count==625 or count==650 or count==675 or count==700 or count==725 or count==750 or count==775 or count==800 or count==825 or count==850 or count==875 or count==900 or count==925 or count==950 or count==975 or count==1000 or count==1025 or count==1050 or count==1075 or count==1100 or count==1125 or or count==1150 or or count==1175:
+  if count==25 or count==50 or count==75 or count==100 or count==125 or count==150 or count==175 or count==200 or count==225 or count==250 or count==275 or count==300 or count==325 or count==350 or count==375 or count==400 or count==425 or count==450 or count==475 or count==500 or count==525 or count==550 or count==575 or count==600 or count==625 or count==650 or count==675 or count==700 or count==725 or count==750 or count==775 or count==800 or count==825 or count==850 or count==875 or count==900 or count==925 or count==950 or count==975 or count==1000 or count==1025 or count==1050 or count==1075 or count==1100 or count==1125 or count==1150 or count==1175:
    time.sleep(3600)
    continue
 
